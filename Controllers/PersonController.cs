@@ -3,14 +3,14 @@ using FoodAutomation.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAutomation.Controllers{
-    [Route("api")]
+    [Route("api/person")]
     [ApiController]
     public class PersonController:ControllerBase{
         private readonly PersonDBService _db;
         public PersonController(){
             _db=new PersonDBService();
         }
-                // https://localhost:5001/api/person
+        // https://localhost:5001/api/person
         // {
         //     "pass": "44444",
         //     "firstName": "متین",
