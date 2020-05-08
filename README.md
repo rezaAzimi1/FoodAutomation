@@ -20,4 +20,10 @@ create .gitignore file and add :
     appsettings.Development.json
     Properties
 
+for creating database :
+    dotnet tool install --global dotnet-ef
+    dotnet add package Microsoft.EntityFrameworkCore.Design
+    dotnet ef migrations add InitialCreate
+    dotnet ef database update
 
+and customize DBstring in the ./DBContext.cs
