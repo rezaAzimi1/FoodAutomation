@@ -3,7 +3,7 @@ using FoodAutomation.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAutomation.Controllers{
-    [Route("api")]
+    [Route("api/food")]
     [ApiController]
     public class FoodController:ControllerBase{
         int adminUser=123456;
