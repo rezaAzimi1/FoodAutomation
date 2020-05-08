@@ -1,0 +1,6 @@
+bin/
+obj/
+FoodAutomation.csproj
+appsettings.json
+appsettings.Development.json
+Properties
