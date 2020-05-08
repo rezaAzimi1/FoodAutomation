@@ -2,7 +2,7 @@ using FoodAutomation.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodAutomation{
-      public class BContext : DbContext
+      public class DBContext : DbContext
     {
         //very important : define a many to many relation
         protected override void OnModelCreating(ModelBuilder modelBuilder)
