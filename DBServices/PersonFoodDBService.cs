@@ -9,13 +9,15 @@ namespace FoodAutomation.Services{
             _db=new DBContext();
         }
         public bool setPersonFood(PersonFood person){
-            person.RecordTime=new DateTime();
+            //for set time by server
+            //person.RecordTime=new DateTime();
             try{
                 _db.PersonFoods.Add(person);
                 _db.SaveChanges();
-            }catch (Exception)
+            }catch (Exception) 
             {
                 return false;
+                
             }
             return true;
         }
@@ -40,9 +42,9 @@ namespace FoodAutomation.Services{
                 if (personFood==null)return false;
                 try{
                     //If FoodCount, FoodId, and PersonId are not below 0, they will not be placed
-                if(updatePersonFood.FoodCount<0)personFood.FoodCount=updatePersonFood.FoodCount;
-                if(updatePersonFood.PersonId<0)personFood.PersonId=updatePersonFood.PersonId;
-                if(updatePersonFood.FoodId<0)personFood.FoodId=updatePersonFood.FoodId;
+                if(updatePersonFood.FoodCount>=0)personFood.FoodCount=updatePersonFood.FoodCount;
+                if(updatePersonFood.PersonId>=0)personFood.PersonId=updatePersonFood.PersonId;
+                if(updatePersonFood.FoodId>=0)personFood.FoodId=updatePersonFood.FoodId;
                 personFood.RecordTime=new DateTime();
                 _db.Update(personFood);
                 _db.SaveChanges();
