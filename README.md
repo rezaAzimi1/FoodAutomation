@@ -10,7 +10,7 @@
 5. dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
 ### create .gitignore file and add :
-> - bin/
+- bin/
 - obj/ 
 - FoodAutomation.csproj
 - appsettings.json
