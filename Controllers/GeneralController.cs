@@ -35,6 +35,11 @@ namespace FoodAutomation.Controllers{
                 var data=_db.getFoodlistPerson(id,pass,MyWrapperDate.IntDateToDateTime(date));
                 if(data!=null)return Ok(data);
                 else return NotFound();
+            //https://localhost:5001/api/chefsReport?date=20200728
+            }else if(type=="chefsReport"){
+                var data=_db.getChefAccess(MyWrapperDate.IntDateToDateTime(date));
+                if (data!=null)return Ok(data);
+                else return NoContent();
             }else return BadRequest();
             }catch(Exception){
                 return BadRequest();

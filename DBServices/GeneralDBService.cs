@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FoodAutomation.AncillaryLib.MapClass;
 using FoodAutomation.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -77,6 +78,22 @@ namespace FoodAutomation.Services{
                 return false;
             }
             return true;
+        }
+        public List<ChefAccess> getChefAccess(DateTime datea){
+            int lowLimit=-24;
+            int highLimit=26;
+            var query=(from f in _db.Foods
+                       join pf in _db.PersonFoods 
+                       on f.FoodId equals pf.FoodId
+                       where  f.DateOfservingFood <= datea.AddDays(highLimit).Date  &&  f.DateOfservingFood >= datea.AddDays(lowLimit).Date 
+                       group new{f,pf} by new{f.meal,f.DateOfservingFood,f.FoodName} into gp 
+                       select new ChefAccess{
+                           FoodName=gp.Key.FoodName,
+                           DateOfservingFood=gp.Key.DateOfservingFood,
+                           meal=gp.Key.meal,
+                           FoodCount=gp.Sum(t=>t.pf.FoodCount)
+                       }).ToList();
+            return query;
         }
     }
 }
